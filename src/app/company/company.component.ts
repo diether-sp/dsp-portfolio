@@ -16,7 +16,7 @@ export class CompanyComponent {
   @Output() select = new EventEmitter<string>();
 
   get imagePath() {
-    return '/assets/company/' + this.company.avatar;
+    return 'assets/company/' + this.company.avatar;
   }
 
   onSelectCompany() {
