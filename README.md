@@ -61,5 +61,5 @@ For more information on using the Angular CLI, including detailed command refere
 
 ## Deployment for new updates
 1. Push changes
-3. ng build --configuration production --base-href /dsp-portfolio/
-2. npx angular-cli-ghpages --dir=dist/dsp-portfolio/browser
+2. ng build --configuration production --base-href /dsp-portfolio/
+3. npx angular-cli-ghpages --dir=dist/dsp-portfolio/browser
