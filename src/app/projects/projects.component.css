@@ -1,7 +1,7 @@
 #projects {
   padding: 1rem;
   border-radius: 8px;
-  background-color: #3a2c54;
+  background-color: #dcc7aa;
 }
 
 header {
@@ -27,7 +27,7 @@ menu {
 menu button {
   font: inherit;
   cursor: pointer;
-  background-color: #9965dd;
+  background-color: #171617;
   border-radius: 4px;
   border: none;
   padding: 0.35rem 0.8rem;
@@ -36,7 +36,7 @@ menu button {
 
 menu button:hover,
 menu button:active {
-  background-color: #a565dd
+  background-color: #060605
 }
 
 ul {

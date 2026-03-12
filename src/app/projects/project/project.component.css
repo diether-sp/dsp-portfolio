@@ -1,7 +1,11 @@
 article {
   padding: 1rem;
-  color: #25113d;
-  background-color: #bf9ee5;
+  color: #171617;
+  background: linear-gradient(
+    to bottom,
+    #E8DCCB,
+    #e7d8c3
+  );
 }
 
 h2, h4 {

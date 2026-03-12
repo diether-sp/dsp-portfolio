@@ -9,8 +9,8 @@ header {
   text-align: center;
   background: linear-gradient(
     to bottom,
-    #2c0a4c,
-    #450d80
+    #E8DCCB,
+    #e7d8c3
   );
   padding: 1rem;
   border-bottom-right-radius: 12px;
@@ -18,9 +18,16 @@ header {
   box-shadow: 0 1px 8px rgba(0, 0, 0, 0.6);
 }
 
-img {
+/* img {
   width: 3.5rem;
   object-fit: contain;
+} */
+
+img {
+  width: 6rem;
+  height: 5rem;
+  object-fit: cover;
+  border-radius: 100%;
 }
 
 h1 {
