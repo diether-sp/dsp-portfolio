@@ -1,0 +1,22 @@
+<app-card>
+  <article>
+    <h2>{{ project.title }}</h2>
+    <time>{{ project.startDate | date:'fullDate' }}</time>
+    <time>{{ project.endDate | date:'fullDate' }}</time>
+    <h4>Technologies: </h4>
+    <ul class="technologies-list">
+      <li *ngFor="let tech of project.technologies">
+        {{ tech }}
+      </li>
+    </ul>
+    <h4>Responsibilities: </h4>
+    <ul class="responsibilities-list">
+      <li *ngFor="let resp of project.responsibilities">
+        {{ resp }}
+      </li>
+    </ul>
+    <!-- <p class="actions">
+      <button (click)="onCompleteProject()">Complete</button>
+    </p> -->
+  </article>
+</app-card>

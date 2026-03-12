@@ -1,0 +1,21 @@
+<!-- @if (isAddingProject) {
+  <app-new-project [companyId]="companyId" (close)="onCloseAddProject()" />
+} -->
+
+<section id="projects">
+  <header>
+    <h2>{{ name }}'s Projects</h2>
+    <!-- <menu>
+      <button (click)="onStartAddProject()">Add Project</button>
+    </menu> -->
+  </header>
+
+  <ul>
+    @for (project of selectedCompanyProjects; track project.id) {
+      <li>
+        <app-project [project]="project" />
+      </li>
+    }
+  </ul>
+</section>
+

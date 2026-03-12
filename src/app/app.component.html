@@ -1,0 +1,21 @@
+<app-header />
+
+<main>
+  <ul id="company">
+    @for (company of companies; track company.id) {
+    <li>
+      <app-company
+        [company]="company"
+        [selected]="company.id === selectedCompanyId"
+        (select)="onSelectCompany($event)"
+      />
+    </li>
+    }
+  </ul>
+
+  @if (selectedCompany) {
+  <app-projects [companyId]="selectedCompany.id" [name]="selectedCompany.name" />
+  } @else {
+  <p id="fallback">Select a company to see projects!</p>
+  }
+</main>
