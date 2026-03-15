@@ -14,8 +14,8 @@ export const PROJECT_LIST = [
         "Maintain, enhance, and bugfix existing project",
         "Implement microservices"
       ],
-      startDate: "",
-      endDate: ""
+      startDate: "2017-12-01",
+      endDate: "2018-04-01"
     },
     {
       id: 'z2',
@@ -33,11 +33,28 @@ export const PROJECT_LIST = [
         "Implement microservices",
         "Implement stored proc"
       ],
-      startDate: "",
-      endDate: ""
+      startDate: "2018-04-01",
+      endDate: "2018-09-01"
     },
     {
       id: 'wc1',
+      companyId: 'c2',
+      title: 'Online Buy And Sell System',
+      technologies: [
+        "Java",
+        "Springboot",
+        "Oracle",
+        "Git"
+      ],
+      responsibilities: [
+        "Developed a ground up REST API for web and mobile applications",
+        "Training project"
+      ],
+      startDate: "2018-10-01",
+      endDate: "2018-12-01"
+    },
+    {
+      id: 'wc2',
       companyId: 'c2',
       title: 'Desktop Application for Business Cheque',
       technologies: [
@@ -50,11 +67,11 @@ export const PROJECT_LIST = [
         "Developed ground up back-end applications that supports electron",
         "Implemented MongoDB then integrated to NeDb"
       ],
-      startDate: "",
-      endDate: ""
+      startDate: "2018-12-01",
+      endDate: "2019-07-01"
     },
     {
-      id: 'wc2',
+      id: 'wc3',
       companyId: 'c2',
       title: 'Online Banking',
       technologies: [
@@ -74,11 +91,11 @@ export const PROJECT_LIST = [
         "Implemented push notifications",
         "Implemented Unit Testing"
       ],
-      startDate: "",
-      endDate: ""
+      startDate: "2019-07-01",
+      endDate: "2020-02-01"
     },
     {
-      id: 'wc3',
+      id: 'wc4',
       companyId: 'c2',
       title: 'Social Media for Pets',
       technologies: [
@@ -92,11 +109,11 @@ export const PROJECT_LIST = [
       responsibilities: [
         "Maintain, and bug fixing on the back-end part"
       ],
-      startDate: "",
-      endDate: ""
+      startDate: "2020-02-01",
+      endDate: "2020-03-01"
     },
     {
-      id: 'wc4',
+      id: 'wc5',
       companyId: 'c2',
       title: 'Online Banking',
       technologies: [
@@ -114,8 +131,8 @@ export const PROJECT_LIST = [
         "Using API Gateway architecture",
         "Implemented Unit Testing"
       ],
-      startDate: "",
-      endDate: ""
+      startDate: "2020-05-01",
+      endDate: "2021-03-01"
     },
     {
       id: 'wsi1',
@@ -134,8 +151,8 @@ export const PROJECT_LIST = [
         "Lead backend team",
         "Implemented Unit Testing"
       ],
-      startDate: "",
-      endDate: ""
+      startDate: "2021-03-01",
+      endDate: "2021-12-01"
     },
     {
       id: 'wsj1',
@@ -151,8 +168,8 @@ export const PROJECT_LIST = [
         "Maintain, enhance, and bugfix existing project using internal framework",
         "Implemented Unit Testing"
       ],
-      startDate: "",
-      endDate: ""
+      startDate: "2023-01-01",
+      endDate: "2024-06-01"
     },
     {
       id: 'e1',
@@ -172,7 +189,7 @@ export const PROJECT_LIST = [
         "Maintain and bug fix existing project",
         "Deploy using docker compose"
       ],
-      startDate: "",
+      startDate: "2025-05-01",
       endDate: ""
     },
     {
@@ -193,7 +210,7 @@ export const PROJECT_LIST = [
         "Maintain, enhance and bug fix existing project",
         "Install and configure UAT and production deployment using docker-compose"
       ],
-      startDate: "",
+      startDate: "2025-05-01",
       endDate: ""
     },
     {
@@ -214,8 +231,8 @@ export const PROJECT_LIST = [
         "Maintain, enhance and bug fix existing project",
         "Deploy using docker compose"
       ],
-      startDate: "",
-      endDate: ""
+      startDate: "2025-05-01",
+      endDate: "2025-12-01"
     },
     {
       id: 'e3',
@@ -239,7 +256,7 @@ export const PROJECT_LIST = [
         "Implemented microservices",
         "Created pods configuration in Kubernetes for API Services"
       ],
-      startDate: "",
-      endDate: ""
+      startDate: "2025-09-01",
+      endDate: "2026-01-01"
     },
 ];

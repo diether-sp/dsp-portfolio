@@ -1,22 +1,49 @@
-<app-card>
-  <article>
-    <h2>{{ project.title }}</h2>
-    <time>{{ project.startDate | date:'fullDate' }}</time>
-    <time>{{ project.endDate | date:'fullDate' }}</time>
-    <h4>Technologies: </h4>
-    <ul class="technologies-list">
-      <li *ngFor="let tech of project.technologies">
-        {{ tech }}
-      </li>
-    </ul>
-    <h4>Responsibilities: </h4>
-    <ul class="responsibilities-list">
-      <li *ngFor="let resp of project.responsibilities">
-        {{ resp }}
-      </li>
-    </ul>
-    <!-- <p class="actions">
-      <button (click)="onCompleteProject()">Complete</button>
-    </p> -->
+<app-card class="project-card">
+  <article class="project-content">
+
+    <!-- Header -->
+    <header class="project-header">
+      <div class="header-top">
+        <h2 class="project-title">{{ project.title }}</h2>
+      </div>
+
+      <div class="project-meta">
+        <span class="date">
+          {{ project.startDate | date:'MMM yyyy' }}
+        </span>
+
+        <span class="separator">–</span>
+
+        <span class="date">
+          {{ project.endDate ? (project.endDate | date:'MMM yyyy') : 'Present' }}
+        </span>
+      </div>
+    </header>
+
+    <!-- Technologies -->
+    <section class="project-section">
+      <h4 class="section-title">Technologies</h4>
+
+      <div class="technologies">
+        <span 
+          class="tech-badge"
+          *ngFor="let tech of project.technologies">
+          {{ tech }}
+        </span>
+      </div>
+    </section>
+
+    <!-- Responsibilities -->
+    <section class="project-section">
+      <h4 class="section-title">Key Responsibilities</h4>
+
+      <ul class="responsibilities">
+        <li *ngFor="let resp of project.responsibilities">
+          <span class="bullet">•</span>
+          <span class="resp-text">{{ resp }}</span>
+        </li>
+      </ul>
+    </section>
+
   </article>
 </app-card>

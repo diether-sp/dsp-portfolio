@@ -1,13 +1,13 @@
 <!-- @if (isAddingProject) {
   <app-new-project [companyId]="companyId" (close)="onCloseAddProject()" />
-} -->
+} 
 
 <section id="projects">
   <header>
     <h2>{{ name }}'s Projects</h2>
-    <!-- <menu>
+    <menu>
       <button (click)="onStartAddProject()">Add Project</button>
-    </menu> -->
+    </menu>
   </header>
 
   <ul>
@@ -18,4 +18,30 @@
     }
   </ul>
 </section>
+-->
 
+<section id="projects" class="projects-section">
+
+  <header class="projects-header">
+    <div class="header-text">
+      <h2>{{ name }}'s Projects</h2>
+      <p class="subtitle">Projects delivered and maintained</p>
+    </div>
+
+    <!-- Optional future button -->
+    <!--
+    <button class="add-btn" (click)="onStartAddProject()">
+      + Add Project
+    </button>
+    -->
+  </header>
+
+  <ul class="projects-grid">
+    @for (project of selectedCompanyProjects; track project.id) {
+      <li class="project-item">
+        <app-project [project]="project" />
+      </li>
+    }
+  </ul>
+
+</section>

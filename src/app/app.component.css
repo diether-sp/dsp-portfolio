@@ -1,4 +1,4 @@
-main {
+/* main {
   width: 90%;
   max-width: 50rem;
   margin: 2.5rem auto;
@@ -37,4 +37,80 @@ main {
     font-size: 1.5rem;
     text-align: left;
   }
+} */
+
+/* Main Layout */
+.main-layout {
+  width: 90%;
+  max-width: 60rem;
+  margin: 3rem auto;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  font-family: 'Inter', sans-serif;
+}
+
+/* Company List */
+.company-list-container {
+  overflow-x: auto;
+}
+
+.company-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  gap: 0.75rem;
+  scroll-snap-type: x mandatory;
+}
+
+.company-list li {
+  scroll-snap-align: start;
+}
+
+/* Projects / Fallback */
+.projects-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+#fallback {
+  font-weight: 600;
+  font-size: 1.15rem;
+  color: #6b7280;
+  text-align: center;
+  padding: 1rem;
+  border: 1px dashed #d1d5db;
+  border-radius: 0.5rem;
+  background-color: #f9fafb;
+}
+
+/* Responsive layout for wider screens */
+@media (min-width: 768px) {
+  .main-layout {
+    grid-template-columns: 220px 1fr;
+    gap: 2.5rem;
+  }
+
+  .company-list {
+    flex-direction: column;
+    gap: 0.5rem;
+    overflow-x: visible;
+  }
+
+  #fallback {
+    font-size: 1.3rem;
+    text-align: left;
+  }
+}
+
+/* Optional: Scrollbar styling for company list */
+.company-list::-webkit-scrollbar {
+  height: 6px;
+}
+
+.company-list::-webkit-scrollbar-thumb {
+  background-color: #a1a1aa;
+  border-radius: 3px;
 }
