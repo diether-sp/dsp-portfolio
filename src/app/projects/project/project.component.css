@@ -11,14 +11,47 @@
 .header-top {
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: flex-start;
 }
 
 .project-title {
   margin: 0;
   font-size: 1.4rem;
   font-weight: 600;
-  color: #111827;
+  color: #8b5e3c;
+}
+
+.primary-btn {
+  white-space: nowrap;
+  background: #8b5e3c;
+  flex-shrink: 0;
+  color: #fffaf5;
+  border: none;
+  padding: 10px 18px;
+  font-size: 14px;
+  font-weight: 500;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  box-shadow: 0 4px 10px rgba(139, 94, 60, 0.25);
+}
+
+/* Hover */
+.primary-btn:hover {
+  background: #6f4a2f;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 14px rgba(111, 74, 47, 0.35);
+}
+
+/* Click */
+.primary-btn:active {
+  transform: scale(0.97);
+}
+
+/* Focus */
+.primary-btn:focus {
+  outline: 2px solid #d6bfa7;
+  outline-offset: 2px;
 }
 
 .project-meta {

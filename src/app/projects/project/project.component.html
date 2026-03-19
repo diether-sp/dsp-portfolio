@@ -5,6 +5,11 @@
     <header class="project-header">
       <div class="header-top">
         <h2 class="project-title">{{ project.title }}</h2>
+        <menu>
+          <button class="primary-btn" (click)="openProjDescModal()">
+            <span>View Details</span>
+          </button>
+        </menu>
       </div>
 
       <div class="project-meta">
@@ -47,3 +52,10 @@
 
   </article>
 </app-card>
+
+<app-proj-desc
+  [isOpen]="isProjDescModalOpen"
+  [title]="project.title"
+  [desc]="project.desc"
+  (close)="isProjDescModalOpen = false">
+</app-proj-desc>

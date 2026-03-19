@@ -21,12 +21,4 @@ export class ProjectsComponent {
   get selectedCompanyProjects() {
     return this.projectsService.getCompanyProjects(this.companyId);
   }
-
-  // onStartAddProject() {
-  //   this.isAddingProject = true;
-  // }
-
-  // onCloseAddProject() {
-  //   this.isAddingProject = false;
-  // }
 }

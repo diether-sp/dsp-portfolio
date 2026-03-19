@@ -1,0 +1,22 @@
+<div class="modal-backdrop" *ngIf="isOpen" (click)="closeModal()"></div>
+
+<div class="modal" *ngIf="isOpen">
+  <div class="modal-content" (click)="$event.stopPropagation()">
+    
+    <div class="modal-header">
+      <h2 class="modal-title">{{ title }}</h2>
+      <button class="icon-close" (click)="closeModal()">✕</button>
+    </div>
+
+    <div class="modal-body">
+      <p>
+        {{ desc }}
+      </p>
+    </div>
+
+    <div class="modal-footer">
+      <button class="secondary-btn" (click)="closeModal()">Close</button>
+    </div>
+
+  </div>
+</div>
