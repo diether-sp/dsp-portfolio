@@ -14,6 +14,8 @@ import { ProjectsService } from './projects.service';
 export class ProjectsComponent {
   @Input({ required: true }) companyId!: string;
   @Input({ required: true }) name!: string;
+  @Input({ required: true }) duration!: string;
+  
   // isAddingProject = false;
 
   constructor(private projectsService: ProjectsService) {}

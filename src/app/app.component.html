@@ -21,6 +21,7 @@
   <section class="projects-container">
     @if (selectedCompany) {
       <app-projects
+        [duration]="selectedCompany.duration"
         [companyId]="selectedCompany.id"
         [name]="selectedCompany.name"
       />

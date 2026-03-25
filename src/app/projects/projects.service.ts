@@ -6,6 +6,7 @@ import { PROJECT_LIST } from './project-list';
 @Injectable({ providedIn: 'root' })
 export class ProjectsService {
   getCompanyProjects(companyId: string) {
-    return PROJECT_LIST.filter((project) => project.companyId === companyId);
-  }
+return PROJECT_LIST
+  .filter(project => project.companyId === companyId)
+  .sort((a, b) => b.id - a.id);  }
 }

@@ -3,9 +3,10 @@
   width: 90%;
   max-width: 60rem;
   margin: 3rem auto;
+  margin-top: 0rem;
   display: grid;
   grid-template-columns: 1fr;
-  gap: 2rem;
+  gap: 1.5rem;
   font-family: 'Inter', sans-serif;
 }
 
@@ -49,7 +50,7 @@
 @media (min-width: 768px) {
   .main-layout {
     grid-template-columns: 220px 1fr;
-    gap: 2.5rem;
+    gap: 1.5rem;
   }
 
   .company-list {
