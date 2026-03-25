@@ -143,7 +143,7 @@ export const PROJECT_LIST = [
     },
     {
       id: 8,
-      companyId: 'c3',
+      companyId: 'c4',
       title: 'Project Management System',
       desc: ' Project management system to streamline project tracking, team member assignments, and technology requirements. The platform enables administrators to monitor project availability, assign members based on skill sets, and define the technologies needed for each project. The system improves visibility into ongoing and upcoming projects, ensures resource optimization, and supports strategic planning for team utilization.',
       technologies: [
@@ -164,7 +164,7 @@ export const PROJECT_LIST = [
     },
     {
       id: 9,
-      companyId: 'c4',
+      companyId: 'c3',
       title: 'Telecom Admin and Customer Service System',
       desc: ' Admin portal for a telecom company to streamline and centralize internal operations. The portal enables efficient management of customer orders, product inventory, and marketing campaigns. The system ensures operational efficiency, reduces manual intervention, and supports scalable business processes.',
       technologies: [

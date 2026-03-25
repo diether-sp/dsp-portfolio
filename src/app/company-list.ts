@@ -13,14 +13,14 @@ export const COMPANY_LIST = [
   },
   {
     id: 'c3',
-    name: 'Weserv Systems International, Inc.',
-    duration: 'Mar 2021 - Dec 2022 | Jun 2024 - Apr 2025',
+    name: 'Weserv Systems Japan',
+    duration: 'Jan 2023 - Jun 2024',
     avatar: 'weserv.jpg',
   },
   {
     id: 'c4',
-    name: 'Weserv Systems Japan',
-    duration: 'Jan 2023 - Jun 2024',
+    name: 'Weserv Systems International, Inc.',
+    duration: 'Mar 2021 - Dec 2022 | Jun 2024 - Apr 2025',
     avatar: 'weserv.jpg',
   },
   {
