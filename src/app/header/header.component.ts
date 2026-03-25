@@ -8,7 +8,7 @@ import { Component } from '@angular/core';
 })
 export class HeaderComponent {
   name = 'Diether San Pedro';
-  tagline = 'Java Spring Boot | Enterprise Applications | 8+ Years | Basic Docker, Kubernetes, Angular';
-  email = 'sp.diether@gmail.com';
+  tagline = 'Java Spring Boot | REST API | Agile | 8+ Years | Basic Docker, Kubernetes, Angular';
+  email = 'diether.sp@gmail.com';
   phoneNumber = '09176953943';
 }

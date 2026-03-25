@@ -1,7 +1,13 @@
 div {
-  border-radius: 6px;
-  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   overflow: hidden;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+div:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
 }
 
 button {
@@ -20,19 +26,45 @@ button {
   text-align: left;
 }
 
+button:hover img,
+button.active img {
+  transform: scale(1.1); /* gentle pop */
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.25); /* stronger depth */
+  border-color: #c6a77d; /* accent ring on hover */
+}
+
 button:hover,
 button:active,
-.active {
-  background-color: #C6A77D;
+button.active {
+  background-color: #c6a77d;
   color: #150722;
+  transform: translateY(-1px);
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.12);
 }
 
 img {
+  width: 3rem;
+  height: 3rem;
+  object-fit: cover;
+  border-radius: 50%;
+  flex-shrink: 0;
+
+  /* subtle border ring */
+  border: 2px solid rgba(255, 255, 255, 0.8);
+
+  /* soft shadow for depth */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+
+  /* smooth hover animation */
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+  background-color: #f4eee1; /* optional subtle background for empty images */
+}
+/* img {
   width: 2rem;
   object-fit: contain;
   border-radius: 50%;
   box-shadow: 0 1px 8px rgba(0, 0, 0, 0.3);
-}
+} */
 
 span {
   margin: 0;
