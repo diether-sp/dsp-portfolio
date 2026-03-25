@@ -26,6 +26,10 @@
   max-width: 520px;
   padding: 22px;
   box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+
+  /* Prevent overflow issues */
+  max-height: 90vh;
+  overflow-y: auto;
 }
 
 /* Header */
@@ -47,12 +51,13 @@
 .icon-close {
   background: transparent;
   border: none;
-  font-size: 18px;
+  font-size: 20px;
   cursor: pointer;
   color: #6f4a2f;
   transition: transform 0.2s ease;
   flex-shrink: 0;
   margin-top: 2px;
+  padding: 6px; /* better tap target */
 }
 
 .icon-close:hover {
@@ -70,6 +75,7 @@
 .modal-footer {
   display: flex;
   justify-content: flex-end;
+  gap: 10px;
 }
 
 /* Button */
@@ -77,7 +83,7 @@
   background: #8b5e3c;
   color: #fffaf5;
   border: none;
-  padding: 8px 16px;
+  padding: 10px 16px;
   border-radius: 8px;
   cursor: pointer;
   transition: all 0.2s ease;
@@ -88,7 +94,7 @@
   transform: translateY(-1px);
 }
 
-/* Animation */
+/* Animation (desktop) */
 @keyframes modalFade {
   from {
     opacity: 0;
@@ -97,5 +103,58 @@
   to {
     opacity: 1;
     transform: translate(-50%, -50%) scale(1);
+  }
+}
+
+/* ========================= */
+/* 📱 Mobile Improvements */
+/* ========================= */
+@media (max-width: 600px) {
+  .modal {
+    top: auto;
+    bottom: 0;
+    left: 0;
+    transform: translateY(100%);
+    width: 100%;
+    animation: slideUp 0.25s ease forwards;
+  }
+
+  .modal-content {
+    width: 100%;
+    max-width: 100%;
+    border-radius: 16px 16px 0 0;
+    padding: 18px;
+
+    /* Safe area for iOS */
+    padding-bottom: calc(18px + env(safe-area-inset-bottom));
+  }
+
+  .modal-header {
+    align-items: center;
+  }
+
+  .modal-body {
+    font-size: 15px;
+    line-height: 1.7;
+  }
+
+  .modal-footer {
+    flex-direction: column;
+  }
+
+  .secondary-btn {
+    width: 100%;
+    padding: 12px;
+    font-size: 15px;
+  }
+}
+
+/* Mobile animation */
+@keyframes slideUp {
+  from {
+    transform: translateY(100%);
+  }
+  to {
+    transform: translateY(0);
   }
 }
