@@ -102,8 +102,8 @@ export const PROJECT_LIST = [
     {
       id: 6,
       companyId: 'c2',
-      title: ' A social media platform where pet owners can share photos, stories, and updates about their pets and connect with other animal lovers.',
-      desc: 'Proj desc here...',
+      title: 'Social Media App for Pet Owners',
+      desc: 'A social media platform where pet owners can share photos, stories, and updates about their pets and connect with other animal lovers.',
       technologies: [
         "Spring boot",
         "Kotlin",
