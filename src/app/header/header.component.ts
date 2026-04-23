@@ -11,4 +11,5 @@ export class HeaderComponent {
   tagline = 'Java Spring Boot | REST API | Agile | 8+ Years | Basic Docker, Kubernetes, Angular';
   email = 'diether.sp@gmail.com';
   phoneNumber = '09176953943';
+  linkedinUrl = 'https://www.linkedin.com/in/diether-san-pedro-a5677816a/';
 }
