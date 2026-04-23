@@ -1,8 +1,43 @@
-<header>
-  <img src="assets/img.png" alt="A todo list" />
-  <div>
-    <h1>{{ name }}</h1>
-    <p>{{ email }} | {{ phoneNumber }}</p>
-    <p>{{ tagline }}</p>
+<header class="hero-header">
+  <div class="hero-content">
+    <div class="hero-copy">
+      <h1>{{ name }}</h1>
+      <span class="hero-eyebrow">Software Engineer • Backend & API Development • Scalable Systems</span>
+
+      <p class="hero-description">
+        Backend-focused software engineer specializing in Java, Spring Boot, and REST API development, with experience in scalable system design and containerized deployments using Docker and Kubernetes. Basic experience in Angular for frontend integration.
+      </p>
+
+      <div class="hero-meta">
+        <span>📧 {{ email }}</span>
+        <span class="hero-separator">•</span>
+        <span>📱 {{ phoneNumber }}</span>
+      </div>
+
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="mailto:{{ email }}">Contact Me</a>
+        <a class="btn btn-secondary" href="#about">About Me</a>
+        <a class="btn btn-secondary" href="#projects">View Projects</a>
+      </div>
+    </div>
+
+    <div class="hero-avatar">
+      <img src="assets/img.png" alt="Profile photo" />
+    </div>
+  </div>
+
+  <div class="hero-highlights">
+    <div class="highlight">
+      <strong>⏳ 8+ years</strong>
+      <span>enterprise systems, APIs and team delivery.</span>
+    </div>
+    <div class="highlight">
+      <strong>🛠️ Backend Engineering</strong>
+      <span>Java, Spring Boot, REST APIs, with Docker & Kubernetes for containerized deployments.</span>
+    </div>
+    <div class="highlight">
+      <strong>✅ Reliable delivery</strong>
+      <span>clear communication, clean code, and production-ready systems.</span>
+    </div>
   </div>
 </header>

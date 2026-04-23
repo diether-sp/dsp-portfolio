@@ -1,0 +1,53 @@
+<section class="about-me" id="about">
+  <div class="about-container">
+    <!-- Header -->
+    <header class="about-header">
+      <h2 class="about-title">👋 About Me</h2>
+      <p class="about-subtitle">
+        Beyond the code: my passions, hobbies, and what keeps me inspired when I'm not building software.
+      </p>
+    </header>
+
+    <!-- Hobbies Section -->
+    <div class="about-section">
+      <h3 class="section-heading">🎯 My Hobbies</h3>
+      <div class="about-grid">
+        @for (hobby of hobbies; track hobby.title) {
+          <div class="about-card">
+            <div class="card-emoji">{{ hobby.emoji }}</div>
+            <h4 class="card-title">{{ hobby.title }}</h4>
+            <p class="card-description">{{ hobby.description }}</p>
+          </div>
+        }
+      </div>
+    </div>
+
+    <!-- Passions Section -->
+    <div class="about-section">
+      <h3 class="section-heading">❤️ What I'm Passionate About</h3>
+      <div class="about-grid">
+        @for (passion of passions; track passion.title) {
+          <div class="about-card">
+            <div class="card-emoji">{{ passion.emoji }}</div>
+            <h4 class="card-title">{{ passion.title }}</h4>
+            <p class="card-description">{{ passion.description }}</p>
+          </div>
+        }
+      </div>
+    </div>
+
+    <!-- AFK Activities Section -->
+    <div class="about-section">
+      <h3 class="section-heading">⏰ When I'm AFK</h3>
+      <div class="about-grid">
+        @for (activity of afkActivities; track activity.title) {
+          <div class="about-card">
+            <div class="card-emoji">{{ activity.emoji }}</div>
+            <h4 class="card-title">{{ activity.title }}</h4>
+            <p class="card-description">{{ activity.description }}</p>
+          </div>
+        }
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,66 +1,74 @@
 .project-card {
-  padding: 20px;
+  border-radius: 28px;
+  overflow: hidden;
+  border: 1px solid rgba(148, 163, 184, 0.16);
+  box-shadow: 0 24px 60px rgba(15, 23, 42, 0.12);
+  background: rgba(15, 23, 42, 0.75);
+}
+
+.project-content {
+  display: grid;
+  gap: 1.1rem;
+  padding: 1.5rem;
 }
 
 .project-header {
-  border-bottom: 1px solid #e5e7eb;
-  padding-bottom: 12px;
-  margin-bottom: 16px;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid rgba(148, 163, 184, 0.18);
+  margin-bottom: 1.25rem;
 }
 
 .header-top {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
+  gap: 1rem;
 }
 
 .project-title {
   margin: 0;
-  font-size: 1.4rem;
-  font-weight: 600;
-  color: #8b5e3c;
+  font-size: 1.45rem;
+  font-weight: 700;
+  color: #f8fafc;
 }
 
 .primary-btn {
   white-space: nowrap;
-  background: #8b5e3c;
+  background: #7c3aed;
   flex-shrink: 0;
-  color: #fffaf5;
+  color: #fff;
   border: none;
-  padding: 10px 18px;
-  font-size: 14px;
-  font-weight: 500;
-  border-radius: 10px;
+  padding: 0.95rem 1.3rem;
+  font-size: 0.95rem;
+  font-weight: 700;
+  border-radius: 999px;
   cursor: pointer;
-  transition: all 0.25s ease;
-  box-shadow: 0 4px 10px rgba(139, 94, 60, 0.25);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+  box-shadow: 0 12px 25px rgba(124, 58, 237, 0.24);
 }
 
-/* Hover */
 .primary-btn:hover {
-  background: #6f4a2f;
-  transform: translateY(-2px);
-  box-shadow: 0 6px 14px rgba(111, 74, 47, 0.35);
+  background: #6d28d9;
+  transform: translateY(-1px);
+  box-shadow: 0 14px 30px rgba(124, 58, 237, 0.3);
 }
 
-/* Click */
 .primary-btn:active {
-  transform: scale(0.97);
+  transform: scale(0.98);
 }
 
-/* Focus */
 .primary-btn:focus {
-  outline: 2px solid #d6bfa7;
+  outline: 2px solid rgba(124, 58, 237, 0.4);
   outline-offset: 2px;
 }
 
 .project-meta {
-  margin-top: 4px;
-  font-size: 0.9rem;
-  color: #6b7280;
-  display: flex;
-  align-items: center;
-  gap: 6px;
+  margin: 0;
+  font-size: 0.95rem;
+  color: #94a3b8;
+  display: inline-flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
 }
 
 .separator {
@@ -68,63 +76,66 @@
 }
 
 .project-section {
-  margin-top: 16px;
+  margin-top: 0.85rem;
+  display: grid;
+  gap: 0.85rem;
 }
 
 .section-title {
-  font-size: 0.95rem;
-  font-weight: 600;
-  margin-bottom: 8px;
-  color: #374151;
+  font-size: 1rem;
+  font-weight: 700;
+  margin: 0 0 0.8rem;
+  color: #f8fafc;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
 }
 
 .technologies {
   display: flex;
   flex-wrap: wrap;
-  gap: 8px;
+  gap: 0.65rem;
 }
 
 .tech-badge {
-  background: #eef2ff;
-  color: #3730a3;
-  padding: 4px 10px;
-  border-radius: 20px;
-  font-size: 0.8rem;
-  font-weight: 500;
+  background: rgba(124, 58, 237, 0.16);
+  color: #e9d5ff;
+  padding: 0.55rem 0.9rem;
+  border-radius: 999px;
+  font-size: 0.85rem;
+  font-weight: 600;
 }
 
 .responsibilities {
   list-style: none;
   padding: 0;
   margin: 0;
+  display: grid;
+  gap: 0.85rem;
 }
 
 .responsibilities li {
-  display: flex;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 0.75rem;
   align-items: flex-start;
-  gap: 8px;
-  margin-bottom: 8px;
-  line-height: 1.5;
+  line-height: 1.75;
 }
 
 .bullet {
-  color: #4f46e5;
-  font-weight: bold;
+  color: #a78bfa;
+  font-weight: 900;
+  margin-top: 0.15rem;
 }
 
 .resp-text {
-  color: #374151;
+  color: #cbd5e1;
 }
 
-
 article {
-  padding: 1rem;
-  color: #171617;
-  background: linear-gradient(
-    to bottom,
-    #E8DCCB,
-    #e7d8c3
-  );
+  margin: 0;
+  background: transparent;
+  color: #e2e8f0;
 }
 
 h2, h4 {
@@ -132,7 +143,7 @@ h2, h4 {
 }
 
 time {
-  color: #3c2c50;
+  color: #94a3b8;
 }
 
 .actions {
@@ -142,19 +153,26 @@ time {
 
 .actions button {
   font: inherit;
-  font-size: 0.9rem;
+  font-size: 0.95rem;
   cursor: pointer;
-  background-color: #380774;
-  color: #decdf2;
-  border-radius: 4px;
-  padding: 0.5rem 1.5rem;
+  background-color: #4338ca;
+  color: #fff;
+  border-radius: 12px;
+  padding: 0.65rem 1.25rem;
   border: none;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
-  transition: all 0.3s ease;
+  box-shadow: 0 12px 24px rgba(67, 56, 202, 0.22);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
 }
 
 .actions button:hover,
 .actions button:active {
-  background-color: #4a0774;
-  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.3);
+  background-color: #3730a3;
+  transform: translateY(-1px);
+  box-shadow: 0 14px 28px rgba(67, 56, 202, 0.26);
+}
+
+@media (min-width: 768px) {
+  .project-content {
+    padding: 1.75rem;
+  }
 }
