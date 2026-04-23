@@ -6,13 +6,14 @@ import { COMPANY_LIST } from './company-list';
 import { ProjectsComponent } from "./projects/projects.component";
 import { FooterComponent } from './footer/footer.component';
 import { AboutMeComponent } from './about-me/about-me.component';
+import { SkillsComponent } from './skills/skills.component';
 
 @Component({
     selector: 'app-root',
     standalone: true,
     templateUrl: './app.component.html',
     styleUrl: './app.component.css',
-    imports: [HeaderComponent, CompanyComponent, ProjectsComponent, FooterComponent, AboutMeComponent]
+    imports: [HeaderComponent, SkillsComponent, CompanyComponent, ProjectsComponent, AboutMeComponent, FooterComponent]
 })
 export class AppComponent implements OnInit {
   companies = COMPANY_LIST.reverse();
@@ -31,5 +32,12 @@ export class AppComponent implements OnInit {
 
   onSelectCompany(id: string) {
     this.selectedCompanyId = id;
+    // Scroll to projects section after content updates
+    setTimeout(() => {
+      const projectsSection = document.getElementById('projects');
+      if (projectsSection) {
+        projectsSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    }, 50);
   }
 }
