@@ -7,6 +7,7 @@
   gap: 1.75rem;
   font-family: 'Inter', sans-serif;
   color: #e2e8f0;
+  overflow-x: hidden;
 }
 
 .company-list-container {
@@ -17,6 +18,7 @@
   padding: 1.5rem;
   box-shadow: 0 24px 70px rgba(15, 23, 42, 0.3);
   overflow-x: auto;
+  overflow-y: hidden;
 }
 
 .company-list-container::before {
@@ -89,4 +91,97 @@
 .company-list::-webkit-scrollbar-thumb {
   background-color: rgba(148, 163, 184, 0.35);
   border-radius: 999px;
+}
+
+@media (max-width: 768px) {
+  .main-layout {
+    margin: 1.5rem auto 2rem;
+    gap: 1.5rem;
+  }
+
+  .company-list-container {
+    padding: 1.25rem;
+    border-radius: 20px;
+  }
+
+  .company-list-container::before {
+    font-size: 0.7rem;
+    left: 1.25rem;
+    padding: 0 0.6rem;
+  }
+
+  .projects-container {
+    gap: 1.5rem;
+  }
+
+  #fallback {
+    font-size: 1rem;
+    padding: 1rem;
+  }
+}
+
+@media (max-width: 680px) {
+  .main-layout {
+    margin: 1rem auto 1.5rem;
+    gap: 1.25rem;
+  }
+
+  .company-list-container {
+    padding: 1rem;
+    border-radius: 16px;
+  }
+
+  .company-list-container::before {
+    font-size: 0.65rem;
+    left: 1rem;
+    padding: 0 0.5rem;
+    letter-spacing: 0.1em;
+  }
+
+  .company-list {
+    margin-top: 1.25rem;
+    gap: 0.75rem;
+  }
+
+  .projects-container {
+    gap: 1.25rem;
+  }
+
+  #fallback {
+    font-size: 0.9rem;
+    padding: 0.85rem;
+    border-radius: 0.75rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .main-layout {
+    margin: 0.75rem auto 1.25rem;
+    gap: 1rem;
+  }
+
+  .company-list-container {
+    padding: 0.85rem;
+    border-radius: 14px;
+  }
+
+  .company-list-container::before {
+    font-size: 0.6rem;
+    left: 0.85rem;
+    letter-spacing: 0.09em;
+  }
+
+  .company-list {
+    margin-top: 1rem;
+    gap: 0.6rem;
+  }
+
+  .projects-container {
+    gap: 1rem;
+  }
+
+  #fallback {
+    font-size: 0.85rem;
+    padding: 0.75rem;
+  }
 }
