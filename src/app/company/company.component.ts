@@ -12,7 +12,7 @@ import { CardComponent } from '../shared/card/card.component';
 })
 export class CompanyComponent {
   @Input({ required: true }) company!: Company;
-  @Input({required: true}) selected!: boolean;
+  @Input({ required: true }) selected!: boolean;
   @Output() select = new EventEmitter<string>();
 
   get imagePath() {

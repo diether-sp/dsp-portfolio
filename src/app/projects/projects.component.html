@@ -1,12 +1,19 @@
-<section id="projects" class="projects-section">
+<section class="projects-section">
 
-  <header class="projects-header">
-    <div class="header-text">
-      <h2>💻 {{ name }}</h2>
-      <p class="subtitle">⏱️ {{ duration }}</p>
+  <!-- Company header strip -->
+  <div class="company-header">
+    <div class="company-header-left">
+      <div class="company-header-info">
+        <h2 class="company-title">{{ name }}</h2>
+        <div class="company-meta">
+          <span class="duration-badge">⏱ {{ duration }}</span>
+          <span class="count-badge">{{ selectedCompanyProjects.length }} project{{ selectedCompanyProjects.length !== 1 ? 's' : '' }}</span>
+        </div>
+      </div>
     </div>
-  </header>
+  </div>
 
+  <!-- Project cards -->
   <ul class="projects-grid">
     @for (project of selectedCompanyProjects; track project.id) {
       <li class="project-item">

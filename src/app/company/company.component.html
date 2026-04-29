@@ -1,6 +1,9 @@
 <app-card>
   <button [class.active]="selected" (click)="onSelectCompany()">
     <img [src]="imagePath" [alt]="company.name" />
-    <span>{{ company.name }}</span>
+    <div class="company-info">
+      <span class="company-name">{{ company.name }}</span>
+      <span class="company-duration">{{ company.duration }}</span>
+    </div>
   </button>
 </app-card>
