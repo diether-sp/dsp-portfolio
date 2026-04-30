@@ -1,5 +1,6 @@
 <section class="about-me" id="about">
   <div class="about-container">
+
     <!-- Header -->
     <header class="about-header">
       <h2 class="about-title">👋 About Me</h2>
@@ -8,46 +9,52 @@
       </p>
     </header>
 
-    <!-- Hobbies Section -->
-    <div class="about-section">
-      <h3 class="section-heading">🎯 My Hobbies</h3>
-      <div class="about-grid">
-        @for (hobby of hobbies; track hobby.title) {
-          <div class="about-card">
-            <div class="card-emoji">{{ hobby.emoji }}</div>
-            <h4 class="card-title">{{ hobby.title }}</h4>
-            <p class="card-description">{{ hobby.description }}</p>
+    <!-- Desktop: original grid layout -->
+    <div class="desktop-layout">
+      @for (section of sections; track section.key) {
+        <div class="about-section">
+          <h3 class="section-heading">{{ section.heading }}</h3>
+          <div class="about-grid">
+            @for (item of section.items; track item.title) {
+              <div class="about-card">
+                <div class="card-emoji">{{ item.emoji }}</div>
+                <h4 class="card-title">{{ item.title }}</h4>
+                <p class="card-description">{{ item.description }}</p>
+              </div>
+            }
           </div>
-        }
-      </div>
+        </div>
+      }
     </div>
 
-    <!-- Passions Section -->
-    <div class="about-section">
-      <h3 class="section-heading">❤️ What I'm Passionate About</h3>
-      <div class="about-grid">
-        @for (passion of passions; track passion.title) {
-          <div class="about-card">
-            <div class="card-emoji">{{ passion.emoji }}</div>
-            <h4 class="card-title">{{ passion.title }}</h4>
-            <p class="card-description">{{ passion.description }}</p>
+    <!-- Mobile: accordion layout -->
+    <div class="mobile-layout">
+      @for (section of sections; track section.key) {
+        <div class="accordion-item" [class.open]="isSectionOpen(section.key)">
+
+          <button class="accordion-trigger" (click)="toggleSection(section.key)" [attr.aria-expanded]="isSectionOpen(section.key)">
+            <span class="accordion-heading">{{ section.heading }}</span>
+            <span class="accordion-meta">{{ section.items.length }} items</span>
+            <span class="accordion-chevron">{{ isSectionOpen(section.key) ? '▲' : '▼' }}</span>
+          </button>
+
+          <div class="accordion-body">
+            <div class="accordion-grid">
+              @for (item of section.items; track item.title) {
+                <div class="accordion-card">
+                  <span class="acc-emoji">{{ item.emoji }}</span>
+                  <div class="acc-text">
+                    <h4 class="acc-title">{{ item.title }}</h4>
+                    <p class="acc-desc">{{ item.description }}</p>
+                  </div>
+                </div>
+              }
+            </div>
           </div>
-        }
-      </div>
+
+        </div>
+      }
     </div>
 
-    <!-- AFK Activities Section -->
-    <div class="about-section">
-      <h3 class="section-heading">⏰ When I'm AFK</h3>
-      <div class="about-grid">
-        @for (activity of afkActivities; track activity.title) {
-          <div class="about-card">
-            <div class="card-emoji">{{ activity.emoji }}</div>
-            <h4 class="card-title">{{ activity.title }}</h4>
-            <p class="card-description">{{ activity.description }}</p>
-          </div>
-        }
-      </div>
-    </div>
   </div>
 </section>

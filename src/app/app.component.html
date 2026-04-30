@@ -28,7 +28,11 @@
         [name]="selectedCompany.name"
       />
     } @else {
-      <p id="fallback">Select a company to see projects!</p>
+      <div id="fallback">
+        <span class="fallback-icon">👈</span>
+        <p class="fallback-title">No company selected</p>
+        <p class="fallback-hint">Select a company from the list to view assigned projects.</p>
+      </div>
     }
   </section>
 

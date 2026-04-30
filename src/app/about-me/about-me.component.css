@@ -11,7 +11,7 @@
   gap: 3rem;
 }
 
-/* Header */
+/* ── Header ── */
 .about-header {
   text-align: center;
   animation: fadeInUp 0.8s ease-out;
@@ -31,16 +31,24 @@
 }
 
 .about-subtitle {
-  margin: 1rem 0 0;
+  margin: 1rem auto 0;
   font-size: 1.05rem;
   color: #cbd5e1;
   line-height: 1.7;
   max-width: 56ch;
-  margin-left: auto;
-  margin-right: auto;
 }
 
-/* Section */
+/* ── Desktop grid layout (default) ── */
+.desktop-layout {
+  display: grid;
+  gap: 3rem;
+}
+
+.mobile-layout {
+  display: none;
+}
+
+/* ── Section ── */
 .about-section {
   display: grid;
   gap: 1.5rem;
@@ -57,14 +65,14 @@
   gap: 0.4rem;
 }
 
-/* Grid */
+/* ── Desktop grid ── */
 .about-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
   gap: 1.5rem;
 }
 
-/* Card */
+/* ── Desktop card ── */
 .about-card {
   padding: 1.75rem;
   border-radius: 24px;
@@ -112,26 +120,156 @@
   line-height: 1.6;
 }
 
-/* Animations */
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+/* ══════════════════════════════════════
+   ACCORDION (mobile only)
+══════════════════════════════════════ */
+
+.accordion-item {
+  border-radius: 16px;
+  border: 1px solid rgba(148, 163, 184, 0.12);
+  background: rgba(15, 23, 42, 0.75);
+  overflow: hidden;
+  transition: border-color 0.25s ease, box-shadow 0.25s ease;
 }
 
-/* Responsive */
+.accordion-item.open {
+  border-color: rgba(124, 58, 237, 0.3);
+  box-shadow: 0 8px 32px rgba(124, 58, 237, 0.1);
+}
+
+.accordion-trigger {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1.1rem 1.25rem;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  color: #f8fafc;
+  text-align: left;
+  transition: background 0.2s ease;
+}
+
+.accordion-trigger:hover {
+  background: rgba(148, 163, 184, 0.06);
+}
+
+.accordion-heading {
+  flex: 1;
+  font-size: 1rem;
+  font-weight: 700;
+  color: #f8fafc;
+  line-height: 1.3;
+}
+
+.accordion-meta {
+  font-size: 0.72rem;
+  font-weight: 500;
+  color: #475569;
+  background: rgba(148, 163, 184, 0.08);
+  border: 1px solid rgba(148, 163, 184, 0.12);
+  border-radius: 999px;
+  padding: 2px 8px;
+  white-space: nowrap;
+}
+
+.accordion-item.open .accordion-meta {
+  color: #a78bfa;
+  background: rgba(124, 58, 237, 0.1);
+  border-color: rgba(124, 58, 237, 0.2);
+}
+
+.accordion-chevron {
+  font-size: 0.7rem;
+  color: #475569;
+  transition: color 0.2s ease;
+  flex-shrink: 0;
+}
+
+.accordion-item.open .accordion-chevron {
+  color: #a78bfa;
+}
+
+/* Accordion body — CSS height animation */
+.accordion-body {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.35s ease;
+}
+
+.accordion-item.open .accordion-body {
+  grid-template-rows: 1fr;
+}
+
+.accordion-grid {
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+/* Accordion cards — compact horizontal layout */
+.accordion-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.9rem;
+  padding: 0.9rem 1.25rem;
+  border-top: 1px solid rgba(148, 163, 184, 0.08);
+  transition: background 0.2s ease;
+}
+
+.accordion-card:hover {
+  background: rgba(124, 58, 237, 0.05);
+}
+
+.acc-emoji {
+  font-size: 1.6rem;
+  flex-shrink: 0;
+  width: 2.4rem;
+  text-align: center;
+  margin-top: 0.1rem;
+}
+
+.acc-text {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  min-width: 0;
+}
+
+.acc-title {
+  margin: 0;
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: #f8fafc;
+  line-height: 1.3;
+}
+
+.acc-desc {
+  margin: 0;
+  font-size: 0.82rem;
+  color: #94a3b8;
+  line-height: 1.55;
+}
+
+/* ── Animations ── */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0);    }
+}
+
+/* ══════════════════════════════════════
+   RESPONSIVE
+══════════════════════════════════════ */
+
 @media (max-width: 768px) {
   .about-me {
     padding: 2rem 1rem;
   }
 
   .about-container {
-    gap: 2rem;
+    gap: 1.5rem;
   }
 
   .about-title {
@@ -142,21 +280,14 @@
     font-size: 1rem;
   }
 
-  .section-heading {
-    font-size: 1.25rem;
+  /* Switch layouts */
+  .desktop-layout {
+    display: none;
   }
 
-  .about-grid {
-    grid-template-columns: 1fr;
-    gap: 1rem;
-  }
-
-  .about-card {
-    padding: 1.5rem;
-  }
-
-  .card-emoji {
-    font-size: 2.5rem;
-    height: 4rem;
+  .mobile-layout {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
   }
 }
