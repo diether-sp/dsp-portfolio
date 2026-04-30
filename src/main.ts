@@ -1,5 +1,7 @@
 import { bootstrapApplication } from '@angular/platform-browser';
-
 import { AppComponent } from './app/app.component';
+import { initBackground } from './app/bg-animation';
 
-bootstrapApplication(AppComponent).catch((err) => console.error(err));
+bootstrapApplication(AppComponent)
+  .then(() => initBackground())
+  .catch((err) => console.error(err));
