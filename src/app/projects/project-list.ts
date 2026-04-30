@@ -142,10 +142,46 @@ export const PROJECT_LIST = [
       endDate: "2021-03-01"
     },
     {
+      id: 16,
+      companyId: 'c4',
+      title: 'Internal Framework and Japan Dispatch Training',
+      desc: 'Doing several training activities to learn the internal framework used for Japan deployment. The training includes creating a sample project using the internal framework, using the repository, document creation, and learning their process on how to use it.',
+      technologies: [
+        "Internal Framework",
+        "Java"
+      ],
+      responsibilities: [
+        "Document creation",
+        "Code reviewer",
+        "Lead training activities for the internal framework",
+        "Implemented Unit Testing"
+      ],
+      startDate: "2022-05-01",
+      endDate: "2022-12-01"
+    },
+    
+    {
+      id: 15,
+      companyId: 'c4',
+      title: 'Company Inventory and Asset Management System',
+      desc: 'A comprehensive inventory and asset management system designed to help companies efficiently track, manage, and optimize their physical assets and inventory. The platform provides features for asset tracking, inventory control, maintenance scheduling, and reporting, enabling businesses to improve operational efficiency, reduce costs, and ensure better resource utilization.',
+      technologies: [
+        "Internal Framework",
+        "Java"
+      ],
+      responsibilities: [
+        "Document creation",
+        "Code reviewer",
+        "Maintain, enhance, and bugfix existing project using internal framework",
+      ],
+      startDate: "2022-01-01",
+      endDate: "2022-04-01"
+    },
+    {
       id: 8,
       companyId: 'c4',
       title: 'Project Management System',
-      desc: ' Project management system to streamline project tracking, team member assignments, and technology requirements. The platform enables administrators to monitor project availability, assign members based on skill sets, and define the technologies needed for each project. The system improves visibility into ongoing and upcoming projects, ensures resource optimization, and supports strategic planning for team utilization.',
+      desc: 'Project management system to streamline project tracking, team member assignments, and technology requirements. The platform enables administrators to monitor project availability, assign members based on skill sets, and define the technologies needed for each project. The system improves visibility into ongoing and upcoming projects, ensures resource optimization, and supports strategic planning for team utilization.',
       technologies: [
         "Spring boot",
         "Java",
