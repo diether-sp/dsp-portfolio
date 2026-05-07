@@ -1,14 +1,29 @@
 <header class="hero-header">
   <div class="hero-content">
+
+    <!-- Avatar + Name + Meta row on mobile -->
+    <div class="hero-avatar">
+      <img src="assets/img.png" alt="Profile photo" />
+      <div class="hero-avatar-side">
+        <h1 class="hero-name-mobile">{{ name }}</h1>
+        <div class="hero-meta hero-meta--beside-avatar">
+          <span>📧 {{ email }}</span>
+          <span>📱 {{ phoneNumber }}</span>
+          <a href="{{ linkedinUrl }}" target="_blank" rel="noopener noreferrer" class="hero-link">🔗 LinkedIn</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Main copy -->
     <div class="hero-copy">
-      <h1>{{ name }}</h1>
-      <span class="hero-eyebrow">Software Engineer • Backend & API Development • Scalable Systems</span>
+      <h1 class="hero-name-desktop">{{ name }}</h1>
+      <span class="hero-eyebrow">Software Engineer • Java & Spring Boot • REST API</span>
 
       <p class="hero-description">
-        Backend-focused software engineer specializing in Java, Spring Boot, and REST API development, with experience in scalable system design and containerized deployments using Docker and Kubernetes. Explore the Skills section to see the tools and infrastructure I use to build reliable systems.
+        Backend-focused engineer specializing in Java, Spring Boot, and REST APIs, with experience in Docker, Kubernetes, and Angular.
       </p>
 
-      <div class="hero-meta">
+      <div class="hero-meta hero-meta--in-copy">
         <span>📧 {{ email }}</span>
         <span class="hero-separator">•</span>
         <span>📱 {{ phoneNumber }}</span>
@@ -19,14 +34,11 @@
       <div class="hero-actions">
         <a class="btn btn-primary" href="mailto:{{ email }}">Contact Me</a>
         <a class="btn btn-secondary" href="#skills">Skills</a>
-        <a class="btn btn-secondary" href="#projects">View Projects</a>
+        <a class="btn btn-secondary" href="#projects">Projects</a>
         <a class="btn btn-secondary" href="#about">About Me</a>
       </div>
     </div>
 
-    <div class="hero-avatar">
-      <img src="assets/img.png" alt="Profile photo" />
-    </div>
   </div>
 
   <div class="hero-highlights">
@@ -36,11 +48,11 @@
     </div>
     <div class="highlight">
       <strong>🛠️ Backend Engineering</strong>
-      <span>Java, Spring Boot, REST APIs, Angular, Docker, and Kubernetes for production systems.</span>
+      <span>Java, Spring Boot, REST, Docker, Kubernetes.</span>
     </div>
     <div class="highlight">
       <strong>✅ Reliable delivery</strong>
-      <span>clean code, scalable architecture, and a strong skills stack for long-term success.</span>
+      <span>clean code, scalable architecture, strong skills stack.</span>
     </div>
   </div>
 </header>
