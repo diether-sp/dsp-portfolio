@@ -1,35 +1,47 @@
 import { Component } from '@angular/core';
 import { CardComponent } from '../shared/card/card.component';
+import { NgClass } from '@angular/common';
 
 interface SkillCategory {
   title: string;
-  highlight: string;
+  icon: string;
+  cssClass: string;
   items: string[];
 }
 
 @Component({
   selector: 'app-skills',
   standalone: true,
-  imports: [CardComponent],
+  imports: [CardComponent, NgClass],
   templateUrl: './skills.component.html',
   styleUrl: './skills.component.css'
 })
 export class SkillsComponent {
+  selectedCard: string | null = null;
+
   skillCategories: SkillCategory[] = [
     {
       title: 'Languages & APIs',
-      highlight: 'Core building blocks',
-      items: ['Java', 'REST', 'SQL', 'PostgresQL', 'TypeScript']
+      icon: '☕',
+      cssClass: 'skills-card--languages',
+      items: ['Java', 'REST', 'SQL', 'PostgreSQL', 'TypeScript']
     },
     {
       title: 'Frameworks & Platforms',
-      highlight: 'Backend expertise',
+      icon: '🧩',
+      cssClass: 'skills-card--frameworks',
       items: ['Spring Boot', 'Spring Security', 'Keycloak', 'Hibernate', 'Angular', 'Node.js']
     },
     {
       title: 'Infrastructure & Tools',
-      highlight: 'Production-ready delivery',
+      icon: '🐳',
+      cssClass: 'skills-card--infrastructure',
       items: ['Docker', 'Kubernetes', 'Git', 'CI/CD', 'Agile']
     }
   ];
+
+  onCardTap(title: string) {
+    // Toggle off if same card tapped again, otherwise select new card
+    this.selectedCard = this.selectedCard === title ? null : title;
+  }
 }

@@ -1,20 +1,22 @@
 <section id="skills" class="skills-section">
   <div class="skills-header">
     <span class="skills-label">🛠️ Skills</span>
-    <h2>Core tools and technologies that power reliable backend platforms</h2>
-    <p>
-      This section highlights the technologies and infrastructure I use to build scalable, secure, and production-ready systems.
-    </p>
+    <h2>What I build with</h2>
+    <p>My go-to stack for shipping reliable, production-ready systems.</p>
   </div>
 
   <div class="skills-grid">
     @for (category of skillCategories; track category.title) {
-      <app-card class="skills-card">
+      <app-card
+        class="skills-card"
+        [ngClass]="[category.cssClass, selectedCard === category.title ? 'card-tapped' : '']"
+        (click)="onCardTap(category.title)">
         <div class="skills-card-inner">
           <div class="skills-card-top">
+            <div class="skills-card-icon">{{ category.icon }}</div>
             <h3>{{ category.title }}</h3>
-            <span>{{ category.highlight }}</span>
           </div>
+          <div class="skills-card-divider"></div>
           <div class="skill-pill-grid">
             @for (skill of category.items; track skill) {
               <span class="skill-pill">{{ skill }}</span>

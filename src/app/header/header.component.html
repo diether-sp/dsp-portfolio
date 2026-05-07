@@ -3,7 +3,7 @@
 
     <!-- Avatar + Name + Meta row on mobile -->
     <div class="hero-avatar">
-      <img src="assets/img.png" alt="Profile photo" />
+      <img src="assets/img.png" alt="Profile photo" (click)="openLightbox()" />
       <div class="hero-avatar-side">
         <h1 class="hero-name-mobile">{{ name }}</h1>
         <div class="hero-meta hero-meta--beside-avatar">
@@ -56,3 +56,11 @@
     </div>
   </div>
 </header>
+
+<!-- Lightbox -->
+<div class="avatar-lightbox" [class.open]="isLightboxOpen" (click)="closeLightbox()">
+  <div class="avatar-lightbox-inner" (click)="$event.stopPropagation()">
+    <img src="assets/img.png" alt="Profile photo" />
+    <button class="avatar-lightbox-close" (click)="closeLightbox()">✕</button>
+  </div>
+</div>

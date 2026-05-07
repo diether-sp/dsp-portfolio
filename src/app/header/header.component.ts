@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, HostListener } from '@angular/core';
 
 @Component({
   selector: 'app-header',
@@ -12,4 +12,19 @@ export class HeaderComponent {
   email = 'diether.sp@gmail.com';
   phoneNumber = '09176953943';
   linkedinUrl = 'https://www.linkedin.com/in/diether-san-pedro-a5677816a/';
+
+  isLightboxOpen = false;
+
+  openLightbox() {
+    this.isLightboxOpen = true;
+  }
+
+  closeLightbox() {
+    this.isLightboxOpen = false;
+  }
+
+  @HostListener('document:keydown.escape')
+  onEscKey() {
+    this.closeLightbox();
+  }
 }
