@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, HostListener } from '@angular/core';
 
 import { HeaderComponent } from './header/header.component';
 import { CompanyComponent } from './company/company.component';
@@ -18,12 +18,15 @@ import { SkillsComponent } from './skills/skills.component';
 export class AppComponent implements OnInit {
   companies: typeof COMPANY_LIST = [];
   selectedCompanyId?: string;
+  showFab = false;
 
   ngOnInit() {
     this.companies = [...COMPANY_LIST].reverse();
-    // if (this.companies.length > 0) {
-    //   this.selectedCompanyId = this.companies[0].id;
-    // }
+  }
+
+  @HostListener('window:scroll')
+  onScroll() {
+    this.showFab = window.scrollY > 300;
   }
 
   get selectedCompany() {
@@ -31,7 +34,6 @@ export class AppComponent implements OnInit {
   }
 
   onSelectCompany(id: string) {
-    // Clicking the active company deselects it (returns to fallback)
     if (this.selectedCompanyId === id) {
       this.selectedCompanyId = undefined;
       return;
@@ -39,12 +41,15 @@ export class AppComponent implements OnInit {
 
     this.selectedCompanyId = id;
 
-    // Scroll to projects section after content updates
     setTimeout(() => {
       const projectsSection = document.getElementById('projects');
       if (projectsSection) {
         projectsSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
       }
     }, 50);
+  }
+
+  scrollToTop() {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   }
 }

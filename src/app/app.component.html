@@ -39,3 +39,12 @@
 <app-about-me />
 
 <app-footer />
+
+<!-- Floating back to top -->
+<button
+  class="fab-top"
+  [class.fab-top--visible]="showFab"
+  (click)="scrollToTop()"
+  aria-label="Back to top">
+  ↑
+</button>

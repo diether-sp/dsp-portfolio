@@ -96,16 +96,12 @@
   55%       { transform: translateX(-4px); }
 }
 
-/* On mobile the list sits on top, so point the arrow upward */
 @media (max-width: 767px) {
   .fallback-icon {
-    /* swap emoji to pointing-up via content trick isn't possible,
-       so we rotate the left-pointing hand to point up */
     display: inline-block;
     transform-origin: center;
     animation: nudge-up 1.6s ease-in-out infinite;
-    /* override the left-pointing emoji with an up one */
-    font-size: 0; /* hide 👈 */
+    font-size: 0;
   }
 
   .fallback-icon::after {
@@ -253,5 +249,58 @@
 
   .fallback-hint {
     font-size: 0.8rem;
+  }
+}
+
+/* ── Floating back to top button ── */
+.fab-top {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  z-index: 999;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: rgba(15, 23, 42, 0.85);
+  border: 1px solid rgba(124, 58, 237, 0.35);
+  color: #a78bfa;
+  font-size: 1.1rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3), 0 0 0 1px rgba(124, 58, 237, 0.1);
+  backdrop-filter: blur(8px);
+  opacity: 0;
+  transform: translateY(12px);
+  pointer-events: none;
+  transition: opacity 0.3s ease, transform 0.3s ease, background 0.2s ease, box-shadow 0.2s ease;
+}
+
+.fab-top--visible {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: all;
+}
+
+.fab-top:hover {
+  background: rgba(124, 58, 237, 0.2);
+  border-color: rgba(124, 58, 237, 0.6);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.35), 0 0 16px rgba(124, 58, 237, 0.2);
+  transform: translateY(-2px);
+  color: #c4b5fd;
+}
+
+.fab-top:active {
+  transform: translateY(0) scale(0.95);
+}
+
+@media (max-width: 480px) {
+  .fab-top {
+    bottom: 1.25rem;
+    right: 1.25rem;
+    width: 40px;
+    height: 40px;
+    font-size: 1rem;
   }
 }

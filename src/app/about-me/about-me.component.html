@@ -9,17 +9,19 @@
       </p>
     </header>
 
-    <!-- Desktop: original grid layout -->
+    <!-- Desktop: 2-column grid, left col = hobbies+passions stacked, right col = afk -->
     <div class="desktop-layout">
       @for (section of sections; track section.key) {
-        <div class="about-section">
+        <div class="about-section about-section--{{ section.key }}">
           <h3 class="section-heading">{{ section.heading }}</h3>
           <div class="about-grid">
             @for (item of section.items; track item.title) {
               <div class="about-card">
                 <div class="card-emoji">{{ item.emoji }}</div>
-                <h4 class="card-title">{{ item.title }}</h4>
-                <p class="card-description">{{ item.description }}</p>
+                <div class="card-body">
+                  <h4 class="card-title">{{ item.title }}</h4>
+                  <p class="card-description">{{ item.description }}</p>
+                </div>
               </div>
             }
           </div>
@@ -27,7 +29,7 @@
       }
     </div>
 
-    <!-- Mobile: accordion layout -->
+    <!-- Mobile: accordion layout (unchanged) -->
     <div class="mobile-layout">
       @for (section of sections; track section.key) {
         <div class="accordion-item" [class.open]="isSectionOpen(section.key)">
