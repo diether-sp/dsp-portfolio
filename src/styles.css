@@ -17,6 +17,10 @@ body {
   min-height: 100%;
 }
 
+html, body {
+  overscroll-behavior: none;
+}
+
 button,
 a {
   font: inherit;
