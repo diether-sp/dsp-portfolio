@@ -1,6 +1,6 @@
 <section class="projects-section">
 
-  <!-- Company header strip -->
+  <!-- Company header -->
   <div class="company-header">
     <div class="company-header-left">
       <div class="company-header-info">
@@ -13,13 +13,78 @@
     </div>
   </div>
 
-  <!-- Project cards -->
-  <ul class="projects-grid">
+  <!-- Unified accordion for all viewports -->
+  <div class="projects-accordion">
     @for (project of selectedCompanyProjects; track project.id) {
-      <li class="project-item">
-        <app-project [project]="project" />
-      </li>
+      <div class="accordion-item" [class.open]="openProjectId === project.id">
+
+        <button class="accordion-trigger" (click)="toggleProject(project.id)">
+          <div class="accordion-trigger-main">
+            <div class="accordion-trigger-top">
+              <span class="accordion-title">{{ project.title }}</span>
+              <span class="accordion-chevron">{{ openProjectId === project.id ? '▲' : '▼' }}</span>
+            </div>
+            <span class="accordion-date">
+              {{ project.startDate | date:'MMM yyyy' }} – {{ project.endDate ? (project.endDate | date:'MMM yyyy') : 'Present' }}
+            </span>
+            @if (openProjectId !== project.id) {
+              <div class="tech-preview">
+                @for (tech of project.technologies.slice(0, 3); track tech) {
+                  <span class="tech-preview-badge">{{ tech }}</span>
+                }
+                @if (project.technologies.length > 3) {
+                  <span class="tech-preview-more">+{{ project.technologies.length - 3 }}</span>
+                }
+              </div>
+            }
+          </div>
+        </button>
+
+        <div class="accordion-body">
+          <div class="accordion-inner">
+            <div class="accordion-content">
+
+              <!-- Technologies -->
+              <div class="acc-section">
+                <h4 class="acc-section-title">🛠 Technologies</h4>
+                <div class="acc-technologies">
+                  @for (tech of project.technologies; track tech) {
+                    <span class="tech-badge">{{ tech }}</span>
+                  }
+                </div>
+              </div>
+
+              <!-- Responsibilities -->
+              <div class="acc-section">
+                <h4 class="acc-section-title">✦ Key Responsibilities</h4>
+                <ul class="acc-responsibilities">
+                  @for (resp of project.responsibilities; track resp) {
+                    <li>
+                      <span class="bullet"></span>
+                      <span class="resp-text">{{ resp }}</span>
+                    </li>
+                  }
+                </ul>
+              </div>
+
+              <!-- View Details -->
+              <div class="acc-footer">
+                <button class="primary-btn" (click)="openDesc(project)">View Details</button>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <app-proj-desc
+        [isOpen]="isProjDescModalOpen && selectedProject?.id === project.id"
+        [title]="project.title"
+        [desc]="project.desc"
+        (close)="isProjDescModalOpen = false">
+      </app-proj-desc>
     }
-  </ul>
+  </div>
 
 </section>
