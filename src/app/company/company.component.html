@@ -5,5 +5,8 @@
       <span class="company-name">{{ company.name }}</span>
       <span class="company-duration">{{ company.duration }}</span>
     </div>
+    @if (projectCount !== undefined) {
+      <span class="project-count-badge">{{ projectCount }} project{{ projectCount !== 1 ? 's' : '' }}</span>
+    }
   </button>
 </app-card>

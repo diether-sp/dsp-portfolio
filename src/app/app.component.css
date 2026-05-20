@@ -96,7 +96,274 @@
   55%       { transform: translateX(-4px); }
 }
 
+.mobile-selector {
+  display: none;
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(12px); }
+  to   { opacity: 1; transform: translateY(0);    }
+}
+
+/* ── Desktop sidebar ── */
+@media (min-width: 768px) {
+  .main-layout {
+    grid-template-columns: 280px minmax(0, 1fr);
+    gap: 2rem;
+  }
+
+  .company-list {
+    flex-direction: column;
+    gap: 0.85rem;
+    overflow-x: visible;
+    margin: 1.5rem 0 0;
+  }
+
+  .company-list-container {
+    position: sticky;
+    top: 0;
+    height: fit-content;
+    overflow-x: visible;
+    overflow-y: visible;
+  }
+}
+
+.company-list::-webkit-scrollbar {
+  height: 6px;
+}
+
+.company-list::-webkit-scrollbar-thumb {
+  background-color: rgba(148, 163, 184, 0.35);
+  border-radius: 999px;
+}
+
+/* ══════════════════════════════════════
+   MOBILE
+══════════════════════════════════════ */
 @media (max-width: 767px) {
+  .main-layout {
+    margin: 1.5rem auto 2rem;
+    gap: 1rem;
+    grid-template-columns: 1fr;
+  }
+
+  .desktop-sidebar {
+    display: none;
+  }
+
+  .mobile-selector {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  /* ── Label + hint ── */
+  .mobile-selector-header {
+    display: flex;
+    flex-direction: column;
+    gap: 0.15rem;
+    padding: 0 0.25rem;
+  }
+
+  .mobile-selector-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      color: #7c3aed;    
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      align-self: flex-start;
+  }
+
+  .mobile-selector-hint {
+    font-size: 0.7rem;
+    color: #475569;
+    font-weight: 400;
+  }
+
+  /* ── Trigger — default (no selection) ── */
+  .mobile-selector-trigger {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.75rem;
+    padding: 0.65rem 0.9rem;
+    background: rgba(15, 23, 42, 0.88);
+    border: 1px solid rgba(148, 163, 184, 0.16);
+    border-radius: 12px;
+    cursor: pointer;
+    color: #e2e8f0;
+    font-family: inherit;
+    transition: border-color 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
+  }
+
+  .mobile-selector-trigger:hover {
+    border-color: rgba(124, 58, 237, 0.35);
+  }
+
+  /* ── Trigger — selected state: looks like a header ── */
+  .mobile-selector-trigger.has-selection {
+    background: rgba(15, 23, 42, 0.95);
+    border-color: rgba(124, 58, 237, 0.35);
+    border-radius: 12px 12px 12px 12px;
+    box-shadow: 0 4px 20px rgba(124, 58, 237, 0.12),
+                inset 0 1px 0 rgba(124, 58, 237, 0.15);
+    padding: 0.75rem 0.9rem;
+  }
+
+  /* Purple top accent line when selected */
+  .mobile-selector-trigger.has-selection::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, #7c3aed, #4338ca);
+    border-radius: 12px 12px 0 0;
+    opacity: 0.9;
+  }
+
+  /* Need relative for the ::before accent */
+  .mobile-selector-trigger {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .mobile-selector-left {
+    display: flex;
+    align-items: center;
+    gap: 1.3rem;
+    min-width: 0;
+    flex: 1;
+  }
+
+  .mobile-selector-img {
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 8px;
+    object-fit: cover;
+    border: 1.5px solid rgba(124, 58, 237, 0.45);
+    flex-shrink: 0;
+    background-color: #1e293b;
+    box-shadow: 0 2px 8px rgba(124, 58, 237, 0.2);
+  }
+
+  .mobile-selector-info {
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+    min-width: 0;
+  }
+
+  .mobile-selector-name {
+    font-size: 0.875rem;
+    font-weight: 700;
+    color: #f8fafc;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    line-height: 1.2;
+    text-align: left;
+  }
+
+  /* Meta row: duration badge + count capsule */
+  .mobile-selector-meta {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    flex-wrap: wrap;
+  }
+
+  /* Duration — styled like company-header duration-badge */
+  .mobile-selector-duration {
+    display: inline-flex;
+    align-items: center;
+    /* background: rgba(99, 102, 241, 0.12); */
+    /* border: 1px solid rgba(99, 102, 241, 0.22); */
+    /* border-radius: 999px; */
+    /* padding: 1px 8px; */
+    font-size: 0.65rem;
+    font-weight: 600;
+    color: #a5b4fc;
+    white-space: nowrap;
+  }
+
+  /* Count capsule — fixed min-width so all badges same size */
+  .mobile-selector-count {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 5.5rem;
+    background: rgba(124, 58, 237, 0.12);
+    border: 1px solid rgba(124, 58, 237, 0.22);
+    border-radius: 999px;
+    padding: 1px 8px;
+    font-size: 0.65rem;
+    font-weight: 600;
+    color: #a78bfa;
+    white-space: nowrap;
+  }
+
+  .mobile-selector-placeholder {
+    font-size: 0.8rem;
+    color: #475569;
+    font-weight: 400;
+    font-style: italic;
+  }
+
+  .mobile-selector-chevron {
+    font-size: 0.6rem;
+    color: #64748b;
+    flex-shrink: 0;
+    transition: color 0.2s ease;
+  }
+
+  .mobile-selector-trigger.has-selection .mobile-selector-chevron {
+    color: #a78bfa;
+  }
+
+  /* ── Dropdown panel ── */
+  .mobile-dropdown {
+    display: grid;
+    grid-template-rows: 0fr;
+    transition: grid-template-rows 0.28s ease;
+  }
+
+  .mobile-dropdown.open {
+    grid-template-rows: 1fr;
+  }
+
+  .mobile-dropdown-inner {
+    overflow: hidden;
+    min-height: 0;
+  }
+
+  .mobile-dropdown-list {
+    list-style: none;
+    padding: 0.35rem;
+    margin: 0;
+    background: rgba(13, 20, 38, 0.97);
+    border: 1px solid rgba(148, 163, 184, 0.12);
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 0.1rem;
+    box-shadow: 0 12px 36px rgba(0, 0, 0, 0.4),
+                0 0 0 1px rgba(124, 58, 237, 0.08);
+  }
+
+  .projects-container {
+    gap: 1rem;
+  }
+
+  #fallback {
+    padding: 2.5rem 1.5rem;
+  }
+
   .fallback-icon {
     display: inline-block;
     transform-origin: center;
@@ -116,131 +383,33 @@
   55%       { transform: translateY(-4px); }
 }
 
-@keyframes fadeInUp {
-  from { opacity: 0; transform: translateY(12px); }
-  to   { opacity: 1; transform: translateY(0);    }
-}
-
-@media (min-width: 768px) {
-  .main-layout {
-    grid-template-columns: 280px minmax(0, 1fr);
-    gap: 2rem;
-  }
-
-  .company-list {
-    flex-direction: column;
-    gap: 0.85rem;
-    overflow-x: visible;
-    margin: 1.5rem 0 0;
-  }
-
-  .company-list-container {
-    position: sticky;
-    top: 0;
-    height: fit-content;
-  }
-}
-
-.company-list::-webkit-scrollbar {
-  height: 6px;
-}
-
-.company-list::-webkit-scrollbar-thumb {
-  background-color: rgba(148, 163, 184, 0.35);
-  border-radius: 999px;
-}
-
-@media (max-width: 768px) {
-  .main-layout {
-    margin: 1.5rem auto 2rem;
-    gap: 1.5rem;
-  }
-
-  .company-list-container {
-    padding: 1.25rem;
-    border-radius: 20px;
-  }
-
-  .company-list-container::before {
-    font-size: 0.7rem;
-    left: 1.25rem;
-    padding: 0 0.6rem;
-  }
-
-  .projects-container {
-    gap: 1.5rem;
-  }
-
-  #fallback {
-    padding: 3rem 1.5rem;
-  }
-}
-
-@media (max-width: 680px) {
-  .main-layout {
-    margin: 1rem auto 1.5rem;
-    gap: 1.25rem;
-  }
-
-  .company-list-container {
-    padding: 1rem;
-    border-radius: 16px;
-  }
-
-  .company-list-container::before {
-    font-size: 0.65rem;
-    left: 1rem;
-    padding: 0 0.5rem;
-    letter-spacing: 0.1em;
-  }
-
-  .company-list {
-    margin-top: 1.25rem;
-    gap: 0.75rem;
-  }
-
-  .projects-container {
-    gap: 1.25rem;
-  }
-
-  #fallback {
-    padding: 2.5rem 1.25rem;
-    border-radius: 1rem;
-  }
-
-  .fallback-title {
-    font-size: 1rem;
-  }
-}
-
 @media (max-width: 480px) {
   .main-layout {
-    margin: 0.75rem auto 1.25rem;
-    gap: 1rem;
+    margin: 1rem auto 1.5rem;
+    gap: 0.85rem;
   }
 
-  .company-list-container {
-    padding: 0.85rem;
-    border-radius: 14px;
+  .mobile-selector-trigger {
+    padding: 0.6rem 0.8rem;
+    border-radius: 10px;
   }
 
-  .company-list-container::before {
-    font-size: 0.6rem;
-    left: 0.85rem;
-    letter-spacing: 0.09em;
+  .mobile-selector-trigger.has-selection {
+    padding: 0.7rem 0.8rem;
+    border-radius: 10px;
   }
 
-  .company-list {
-    margin-top: 1rem;
-    gap: 0.6rem;
+  .mobile-selector-trigger.has-selection::before {
+    border-radius: 10px 10px 0 0;
   }
 
-  .projects-container {
-    gap: 1rem;
+  .mobile-dropdown-list {
+    border-radius: 10px;
   }
 
   #fallback {
     padding: 2rem 1rem;
+    border-radius: 1rem;
   }
 
   .fallback-title {

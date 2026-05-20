@@ -3,8 +3,9 @@
 <app-skills />
 
 <main id="workhistory" class="main-layout">
-  <!-- Company list / sidebar -->
-  <aside class="company-list-container">
+
+  <!-- ── Desktop sidebar ── -->
+  <aside class="company-list-container desktop-sidebar">
     <ul id="company" class="company-list">
       @for (company of companies; track company.id) {
         <li>
@@ -17,6 +18,55 @@
       }
     </ul>
   </aside>
+
+  <!-- ── Mobile dropdown selector ── -->
+  <div class="mobile-selector" id="mobile-selector">
+
+    <div class="mobile-selector-header">
+      <span class="mobile-selector-label">💼 Work Experience</span>
+      <span class="mobile-selector-hint">Select a company to view projects</span>
+    </div>
+
+    <button
+      class="mobile-selector-trigger"
+      [class.has-selection]="!!selectedCompany"
+      (click)="toggleDropdown()">
+      <div class="mobile-selector-left">
+        @if (selectedCompany) {
+          <img [src]="'assets/company/' + selectedCompany.avatar" [alt]="selectedCompany.name" class="mobile-selector-img" />
+          <div class="mobile-selector-info">
+            <span class="mobile-selector-name">{{ selectedCompany.name }}</span>
+            <div class="mobile-selector-meta">
+              <span class="mobile-selector-duration">⏱ {{ selectedCompany.duration }}</span>
+              <span class="mobile-selector-count">{{ getProjectCount(selectedCompany.id) }} project{{ getProjectCount(selectedCompany.id) !== 1 ? 's' : '' }}</span>
+            </div>
+          </div>
+        } @else {
+          <span class="mobile-selector-placeholder">Choose a company…</span>
+        }
+      </div>
+      <span class="mobile-selector-chevron">{{ isDropdownOpen ? '▲' : '▼' }}</span>
+    </button>
+
+    <!-- Dropdown list -->
+    <div class="mobile-dropdown" [class.open]="isDropdownOpen">
+      <div class="mobile-dropdown-inner">
+        <ul class="mobile-dropdown-list">
+          @for (company of companies; track company.id) {
+            <li>
+              <app-company
+                [company]="company"
+                [selected]="company.id === selectedCompanyId"
+                [projectCount]="getProjectCount(company.id)"
+                (select)="onSelectCompany($event)"
+              />
+            </li>
+          }
+        </ul>
+      </div>
+    </div>
+
+  </div>
 
   <!-- Projects / main content -->
   <section id="projects" class="projects-container">
@@ -34,6 +84,7 @@
       </div>
     }
   </section>
+
 </main>
 
 <app-about-me />
