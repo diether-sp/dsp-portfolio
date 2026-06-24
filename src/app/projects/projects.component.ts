@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit, OnChanges, SimpleChanges } from '@angular/core';
 import { DatePipe } from '@angular/common';
 
 import { ProjectComponent } from './project/project.component';
@@ -13,7 +13,7 @@ import { Project } from './project/project.model';
   styleUrl: './projects.component.css',
   imports: [ProjectComponent, ProjDescComponent, DatePipe]
 })
-export class ProjectsComponent {
+export class ProjectsComponent implements OnInit, OnChanges {
   @Input({ required: true }) companyId!: string;
   @Input({ required: true }) name!: string;
   @Input({ required: true }) duration!: string;
@@ -26,6 +26,21 @@ export class ProjectsComponent {
 
   get selectedCompanyProjects() {
     return this.projectsService.getCompanyProjects(this.companyId);
+  }
+
+  ngOnInit() {
+    this.openFirstProject();
+  }
+
+  ngOnChanges(changes: SimpleChanges) {
+    if (changes['companyId']) {
+      this.openFirstProject();
+    }
+  }
+
+  private openFirstProject() {
+    const firstProject = this.selectedCompanyProjects[0];
+    this.openProjectId = firstProject ? firstProject.id : null;
   }
 
   toggleProject(id: number) {
